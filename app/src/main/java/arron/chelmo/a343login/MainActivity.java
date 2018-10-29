@@ -13,18 +13,17 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+    Button userInfoButton = (Button) findViewById(R.id.userInfoButton);
+    Button createWorkoutButton = (Button) findViewById(R.id.createWorkoutButton);
     Button startWorkoutButton = (Button) findViewById(R.id.startWorkoutButton);
 
 
-    startWorkoutButton.setOnClickListener(new View.OnClickListener() {
+    userInfoButton.setOnClickListener(new View.OnClickListener() {
         public void onClick(View v) {
             Intent intent = new Intent(MainActivity.this, LoginActivity.class);
             startActivity(intent);
         }
     });
-
-        Button createWorkoutButton = (Button) findViewById(R.id.createWorkoutButton);
-
 
         createWorkoutButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
@@ -33,22 +32,14 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        Button viewInfoButton = (Button) findViewById(R.id.viewInfoButton);
 
-
-        viewInfoButton.setOnClickListener(new View.OnClickListener() {
+        startWorkoutButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this, StartWorkout.class);
                 startActivity(intent);
             }
         });
 
-
-
-      //  protected void onCreate(Bundle savedInstanceState) {
-      //      super.onCreate(savedInstanceState);
-     //       setContentView(R.layout.activity_main);
-     //   }
 
     }
 }
