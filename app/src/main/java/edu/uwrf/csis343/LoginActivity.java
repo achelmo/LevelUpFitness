@@ -1,4 +1,4 @@
-package uwrf.edu.csis343;
+package edu.uwrf.csis343;
 
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;

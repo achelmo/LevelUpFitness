@@ -1,4 +1,4 @@
-package uwrf.edu.csis343;
+package edu.uwrf.csis343;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
