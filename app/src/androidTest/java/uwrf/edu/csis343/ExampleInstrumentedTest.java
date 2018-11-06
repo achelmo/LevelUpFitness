@@ -1,4 +1,4 @@
-package arron.chelmo.a343login;
+package uwrf.edu.csis343;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;
@@ -21,6 +21,6 @@ public class ExampleInstrumentedTest {
         // Context of the app under test.
         Context appContext = InstrumentationRegistry.getTargetContext();
 
-        assertEquals("arron.chelmo.a343login", appContext.getPackageName());
+        assertEquals("uwrf.edu.csis343", appContext.getPackageName());
     }
 }

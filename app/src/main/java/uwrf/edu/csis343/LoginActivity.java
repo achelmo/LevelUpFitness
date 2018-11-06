@@ -1,4 +1,4 @@
-package arron.chelmo.a343login;
+package uwrf.edu.csis343;
 
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
