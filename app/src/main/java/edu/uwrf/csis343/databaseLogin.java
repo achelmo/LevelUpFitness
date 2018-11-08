@@ -1,4 +1,4 @@
-package arron.chelmo.a343login;
+package edu.uwrf.csis343;
 
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
