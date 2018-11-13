@@ -64,6 +64,14 @@ public class register2 extends AppCompatActivity {
             }
         });
 
+        Button backButton1 = (Button) findViewById(R.id.backButton1);
+        backButton1.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                Intent intent = new Intent(register2.this, LoginActivity.class);
+                startActivity(intent);
+            }
+        });
+
     }
 
 
@@ -78,4 +86,5 @@ public class register2 extends AppCompatActivity {
         contentValues.put(sqliteHelp.COLOUMN_HEIGHT, height);
         long id = db.insert(sqliteHelp.TABLE_NAME, null, contentValues);
     }
+    
 }
