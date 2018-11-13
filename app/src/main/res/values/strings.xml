@@ -21,8 +21,9 @@
     =======
     <string name="title_activity_login">Log In</string>
     <!--<string name="title_activity_create_workout">Create Workout</string>-->
-   <!--<string name="title_activity_start_workout">Start Workout</string>-->
+    <!--<string name="title_activity_start_workout">Start Workout</string>-->
     <string name="title_activity_register2">register2</string>
+    <string name="title_activity_user_info">UserInfo</string>
     >>>>>>> e1a3c79dd0341c03831c728521e3dcbb0cc43cf5
 
 </resources>

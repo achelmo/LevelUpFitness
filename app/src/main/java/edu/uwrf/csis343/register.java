@@ -5,16 +5,13 @@ import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-public class register2 extends AppCompatActivity {
+public class register extends AppCompatActivity {
 
     SQLiteOpenHelper openHelper;
     SQLiteDatabase db;
@@ -37,7 +34,7 @@ public class register2 extends AppCompatActivity {
         //Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         //setSupportActionBar(toolbar);
 
-        openHelper=new sqliteHelp(this);
+        openHelper=new SqliteHelp(this);
         Button _registerButton = (Button)findViewById(R.id.regButton);
         _firstNameText=(EditText)findViewById(R.id.firstNameText);
         _lastNameText=(EditText)findViewById(R.id.lastNameText);
@@ -67,7 +64,7 @@ public class register2 extends AppCompatActivity {
         Button backButton1 = (Button) findViewById(R.id.backButton1);
         backButton1.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                Intent intent = new Intent(register2.this, LoginActivity.class);
+                Intent intent = new Intent(register.this, LoginActivity.class);
                 startActivity(intent);
             }
         });
@@ -77,14 +74,14 @@ public class register2 extends AppCompatActivity {
 
     public void insertdata(String fname, String lname, String pass, String phone, String email, String weight, String height){
         ContentValues contentValues = new ContentValues();
-        contentValues.put(sqliteHelp.COLOUMN_FirstName, fname);
-        contentValues.put(sqliteHelp.COLOUMN_LastName, lname);
-        contentValues.put(sqliteHelp.COLOUMN_PASSWORD, pass);
-        contentValues.put(sqliteHelp.COLOUMN_PHONE, phone);
-        contentValues.put(sqliteHelp.COLOUMN_USERNAME, email);
-        contentValues.put(sqliteHelp.COLOUMN_WEIGHT, weight);
-        contentValues.put(sqliteHelp.COLOUMN_HEIGHT, height);
-        long id = db.insert(sqliteHelp.TABLE_NAME, null, contentValues);
+        contentValues.put(SqliteHelp.COLOUMN_FirstName, fname);
+        contentValues.put(SqliteHelp.COLOUMN_LastName, lname);
+        contentValues.put(SqliteHelp.COLOUMN_PASSWORD, pass);
+        contentValues.put(SqliteHelp.COLOUMN_PHONE, phone);
+        contentValues.put(SqliteHelp.COLOUMN_USERNAME, email);
+        contentValues.put(SqliteHelp.COLOUMN_WEIGHT, weight);
+        contentValues.put(SqliteHelp.COLOUMN_HEIGHT, height);
+        long id = db.insert(SqliteHelp.TABLE_NAME, null, contentValues);
     }
     
 }

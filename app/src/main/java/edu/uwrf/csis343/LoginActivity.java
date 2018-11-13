@@ -30,10 +30,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.Date;
 import java.util.List;
 
 import static android.Manifest.permission.READ_CONTACTS;
@@ -78,7 +75,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
         Button testButton = (Button) findViewById(R.id.testButton);
         testButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                Intent intent = new Intent(LoginActivity.this, register2.class);
+                Intent intent = new Intent(LoginActivity.this, register.class);
                 startActivity(intent);
             }
         });

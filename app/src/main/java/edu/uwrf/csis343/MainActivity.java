@@ -18,11 +18,12 @@ public class MainActivity extends AppCompatActivity {
     Button userInfoButton = (Button) findViewById(R.id.userInfoButton);
     Button createWorkoutButton = (Button) findViewById(R.id.createWorkoutButton);
     Button startWorkoutButton = (Button) findViewById(R.id.startWorkoutButton);
+    //Button startWorkoutButton = (Button) findViewById(R.id.startWorkoutButton);
 
 
     userInfoButton.setOnClickListener(new View.OnClickListener() {
         public void onClick(View v) {
-            Intent intent = new Intent(MainActivity.this, LoginActivity.class);
+            Intent intent = new Intent(MainActivity.this, UserInfo.class);
             startActivity(intent);
         }
     });
@@ -41,6 +42,7 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
 
 
     }

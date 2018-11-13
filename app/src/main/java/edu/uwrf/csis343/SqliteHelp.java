@@ -4,7 +4,7 @@ import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
-public class sqliteHelp extends SQLiteOpenHelper {
+public class SqliteHelp extends SQLiteOpenHelper {
 
     //private vs public
     public static final int DATABASE_VERSION = 1;
@@ -22,7 +22,7 @@ public class sqliteHelp extends SQLiteOpenHelper {
     SQLiteDatabase db;
 
 
-    public sqliteHelp(Context context){
+    public SqliteHelp(Context context){
         super(context, DATABASE_NAME,null,DATABASE_VERSION);
     }
 
