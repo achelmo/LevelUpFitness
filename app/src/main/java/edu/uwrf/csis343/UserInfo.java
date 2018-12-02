@@ -1,17 +1,12 @@
 package edu.uwrf.csis343;
 
 import android.content.Intent;
-import android.database.Cursor;
-import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
-import edu.uwrf.csis343.SqliteHelp;
 
 public class UserInfo extends AppCompatActivity {
 
@@ -34,19 +29,19 @@ public class UserInfo extends AppCompatActivity {
         //String[] columnNames = dbCursor.getColumnNames();
 
 
-        String fName = SqliteHelp.COLOUMN_FirstName;
-        String lName = SqliteHelp.COLOUMN_LastName;
+        String fName = DatabaseHelper.COLOUMN_FirstName;
+        String lName = DatabaseHelper.COLOUMN_LastName;
 
         //firstNameTextView = (TextView)fName;
 
         firstNameTextView.setText("");
-        firstNameTextView.append(SqliteHelp.COLOUMN_FirstName);
+        firstNameTextView.append(DatabaseHelper.COLOUMN_FirstName);
         //name.setText("");
         //name.append("Id: "+cn.getID());
         firstNameTextView.setText(lName);
         //findViewById(R.id.firstNameTextView) = fName;
        // firstNameTextView
-       // String id = cursor.getString( SqliteHelp.getColumnIndex("FirstName") );
+       // String id = cursor.getString( DatabaseHelper.getColumnIndex("FirstName") );
 
 
 

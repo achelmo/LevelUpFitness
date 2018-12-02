@@ -1,10 +1,11 @@
 package edu.uwrf.csis343;
 
+import android.content.ContentValues;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
-public class SqliteHelp extends SQLiteOpenHelper {
+public class DatabaseHelper extends SQLiteOpenHelper {
 
     //private vs public
     public static final int DATABASE_VERSION = 1;
@@ -21,18 +22,35 @@ public class SqliteHelp extends SQLiteOpenHelper {
 
     SQLiteDatabase db;
 
+    private static final String TABLE_CREATE = "create table contacts (ID INTEGER PRIMARY KEY AUTOINCREMENT,FirstName TEXT,"
+            +"LastName TEXT, pass TEXT,phone TEXT,username TEXT, weight TEXT, height TEXT)";
 
-    public SqliteHelp(Context context){
+    public DatabaseHelper(Context context){
         super(context, DATABASE_NAME,null,DATABASE_VERSION);
     }
+
 
     @Override
     public void onCreate(SQLiteDatabase db) {
        // db.execSQL("CREATE TABLE" + TABLE_NAME+ "(ID INTEGER PRIMARY KEY AUTO INCREMENT, )");
-
-        db.execSQL("CREATE TABLE " + TABLE_NAME + "(ID INTEGER PRIMARY KEY AUTOINCREMENT,FirstName TEXT,"
-                +"LastName TEXT, pass TEXT,phone TEXT,username TEXT, weight TEXT, height TEXT)");
+        db.execSQL(TABLE_CREATE);
+       // db.execSQL("CREATE TABLE " + TABLE_NAME + "(ID INTEGER PRIMARY KEY AUTOINCREMENT,FirstName TEXT,"
+       //         +"LastName TEXT, pass TEXT,phone TEXT,username TEXT, weight TEXT, height TEXT)");
         this.db = db;
+    }
+
+    public void insertContact(Contact c){
+        db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put(COLOUMN_USERNAME, c.getUserName());
+        values.put(COLOUMN_PASSWORD, c.getPass());
+        values.put(COLOUMN_FirstName, c.getFirstName());
+        values.put(COLOUMN_LastName, c.getLastName());
+        values.put(COLOUMN_HEIGHT, c.getHeight());
+        values.put(COLOUMN_WEIGHT, c.getWeight());
+        values.put(COLOUMN_PHONE, c.getPhone());
+
+        db.insert(TABLE_NAME, null, values);
     }
 
     @Override

@@ -13,6 +13,7 @@ import android.widget.Toast;
 
 public class register extends AppCompatActivity {
 
+    DatabaseHelper helper = new DatabaseHelper(this);
     SQLiteOpenHelper openHelper;
     SQLiteDatabase db;
     //Button _registerButton;
@@ -34,7 +35,7 @@ public class register extends AppCompatActivity {
         //Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         //setSupportActionBar(toolbar);
 
-        openHelper=new SqliteHelp(this);
+        openHelper=new DatabaseHelper(this);
         Button _registerButton = (Button)findViewById(R.id.regButton);
         _firstNameText=(EditText)findViewById(R.id.firstNameText);
         _lastNameText=(EditText)findViewById(R.id.lastNameText);
@@ -50,12 +51,24 @@ public class register extends AppCompatActivity {
                 db=openHelper.getWritableDatabase();
                 String fname = _firstNameText.getText().toString();
                 String lname = _lastNameText.getText().toString();
-                String pass = _passwordText.getText().toString();
-                String phone = _phoneText.getText().toString();
+                String pass1 = _passwordText.getText().toString();
+                String phone1 = _phoneText.getText().toString();
                 String email = _emailText.getText().toString();
-                String weight = _weightText.getText().toString();
-                String height = _heightText.getText().toString();
-                insertdata(fname,lname,pass,phone,email,weight,height);
+                String weight1 = _weightText.getText().toString();
+                String height1 = _heightText.getText().toString();
+                insertdata(fname,lname,pass1,phone1,email,weight1,height1);
+
+                // insert the info into database
+                Contact c = new Contact();
+                c.setFirstName(fname);
+                c.setLastName(lname);
+                c.setUsername(email);
+                c.setHeight(height1);
+                c.setWeight(weight1);
+                c.setPass(pass1);
+                c.setPhone(phone1);
+                helper.insertContact(c);
+
                 Toast.makeText(getApplicationContext(), "register successfully",Toast.LENGTH_LONG).show();
 
             }
@@ -71,17 +84,18 @@ public class register extends AppCompatActivity {
 
     }
 
-
+    // insert into database
     public void insertdata(String fname, String lname, String pass, String phone, String email, String weight, String height){
         ContentValues contentValues = new ContentValues();
-        contentValues.put(SqliteHelp.COLOUMN_FirstName, fname);
-        contentValues.put(SqliteHelp.COLOUMN_LastName, lname);
-        contentValues.put(SqliteHelp.COLOUMN_PASSWORD, pass);
-        contentValues.put(SqliteHelp.COLOUMN_PHONE, phone);
-        contentValues.put(SqliteHelp.COLOUMN_USERNAME, email);
-        contentValues.put(SqliteHelp.COLOUMN_WEIGHT, weight);
-        contentValues.put(SqliteHelp.COLOUMN_HEIGHT, height);
-        long id = db.insert(SqliteHelp.TABLE_NAME, null, contentValues);
+        contentValues.put(DatabaseHelper.COLOUMN_FirstName, fname);
+        contentValues.put(DatabaseHelper.COLOUMN_LastName, lname);
+        contentValues.put(DatabaseHelper.COLOUMN_PASSWORD, pass);
+        contentValues.put(DatabaseHelper.COLOUMN_PHONE, phone);
+        contentValues.put(DatabaseHelper.COLOUMN_USERNAME, email);
+        contentValues.put(DatabaseHelper.COLOUMN_WEIGHT, weight);
+        contentValues.put(DatabaseHelper.COLOUMN_HEIGHT, height);
+        long id = db.insert(DatabaseHelper.TABLE_NAME, null, contentValues);
     }
-    
+
+
 }
