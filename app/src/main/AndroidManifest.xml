@@ -15,14 +15,19 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".LoginActivity"
-            android:label="@string/title_activity_login">
+            android:name=".LoginActivity2"
+            android:label="@string/title_activity_login2">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".LoginActivity"
+            android:label="@string/title_activity_login" />
+  <!-- go here
+        </activity> -->
         <activity
             android:name=".MainActivity"
             android:label="@string/app_name" />
@@ -42,6 +47,7 @@
             android:name=".register"
             android:label="@string/title_activity_register2"
             android:theme="@style/AppTheme.NoActionBar" />
+
         <activity
             android:name=".UserInfo"
             android:label="@string/title_activity_user_info"

@@ -77,7 +77,7 @@ public class register extends AppCompatActivity {
         Button backButton1 = (Button) findViewById(R.id.backButton1);
         backButton1.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                Intent intent = new Intent(register.this, LoginActivity.class);
+                Intent intent = new Intent(register.this, LoginActivity2.class);
                 startActivity(intent);
             }
         });

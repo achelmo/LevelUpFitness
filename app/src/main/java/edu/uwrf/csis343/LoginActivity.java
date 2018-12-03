@@ -87,6 +87,20 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
                 startActivity(intent);
             }
         });
+        Button login = (Button) findViewById(R.id.email_sign_in_button);
+        login.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                EditText a = (EditText) findViewById(R.id.email);
+                String str = a.getText().toString();
+                EditText b = (EditText) findViewById(R.id.password);
+                String pass = b.getText().toString();
+
+              //  helper.searchPass(str);
+
+                Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+                startActivity(intent);
+            }
+        });
 
 
 
@@ -183,11 +197,11 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
         View focusView = null;
 
         // Check for a valid password, if the user entered one.
-        if (!TextUtils.isEmpty(password) && !isPasswordValid(password)) {
-            mPasswordView.setError(getString(R.string.error_invalid_password));
-            focusView = mPasswordView;
-            cancel = true;
-        }
+    //    if (!TextUtils.isEmpty(password) && !isPasswordValid(password)) {
+  //          mPasswordView.setError(getString(R.string.error_invalid_password));
+  //          focusView = mPasswordView;
+  //          cancel = true;
+   //     }
 
         // Check for a valid email address.
         if (TextUtils.isEmpty(email)) {

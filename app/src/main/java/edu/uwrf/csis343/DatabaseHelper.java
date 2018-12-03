@@ -2,6 +2,7 @@ package edu.uwrf.csis343;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
@@ -22,7 +23,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     SQLiteDatabase db;
 
-    private static final String TABLE_CREATE = "create table contacts (ID INTEGER PRIMARY KEY AUTOINCREMENT,FirstName TEXT,"
+    private static final String TABLE_CREATE = "create table contacts (ID INTEGER PRIMARY KEY,FirstName TEXT,"
             +"LastName TEXT, pass TEXT,phone TEXT,username TEXT, weight TEXT, height TEXT)";
 
     public DatabaseHelper(Context context){
@@ -42,6 +43,12 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public void insertContact(Contact c){
         db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
+
+        String query = "select * from " + TABLE_NAME;
+        Cursor cursor = db.rawQuery(query, null);
+        int count = cursor.getCount();
+
+        values.put(COLOUMN_ID, count);
         values.put(COLOUMN_USERNAME, c.getUserName());
         values.put(COLOUMN_PASSWORD, c.getPass());
         values.put(COLOUMN_FirstName, c.getFirstName());
@@ -51,6 +58,28 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         values.put(COLOUMN_PHONE, c.getPhone());
 
         db.insert(TABLE_NAME, null, values);
+        db.close();
+    }
+
+    public String searchPass(String uname){
+        db = this.getReadableDatabase();
+        String query = "select username, pass from " + TABLE_NAME;
+        Cursor cursor = db.rawQuery(query, null);
+        String a,b;
+        b = "not found";
+        if(cursor.moveToFirst()){
+            do{
+                a = cursor.getString(0);
+
+                if(a.equals(uname)){
+                    b = cursor.getString(1);
+                    break;
+                }
+
+            }while(cursor.moveToNext());
+        }
+
+        return b;
     }
 
     @Override
