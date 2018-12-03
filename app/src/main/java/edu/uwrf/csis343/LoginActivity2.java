@@ -40,7 +40,8 @@ public class LoginActivity2 extends AppCompatActivity {
 
                 if(pass.equals(password)) {
                     Intent intent = new Intent(LoginActivity2.this, MainActivity.class);
-                    intent.putExtra("Username", str);
+                    //intent.putExtra("Username", str);
+                    Toast.makeText(getApplicationContext(), "Great Success",Toast.LENGTH_LONG).show();
                     startActivity(intent);
                 }
                 else{

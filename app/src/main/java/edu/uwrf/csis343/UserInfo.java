@@ -30,7 +30,7 @@ public class UserInfo extends AppCompatActivity {
 
 
         String fName = DatabaseHelper.COLOUMN_FirstName;
-        String lName = DatabaseHelper.COLOUMN_LastName;
+        //String lName = ;
 
         //firstNameTextView = (TextView)fName;
 
@@ -38,7 +38,7 @@ public class UserInfo extends AppCompatActivity {
         firstNameTextView.append(DatabaseHelper.COLOUMN_FirstName);
         //name.setText("");
         //name.append("Id: "+cn.getID());
-        firstNameTextView.setText(lName);
+       // firstNameTextView.setText(lName);
         //findViewById(R.id.firstNameTextView) = fName;
        // firstNameTextView
        // String id = cursor.getString( DatabaseHelper.getColumnIndex("FirstName") );
@@ -54,7 +54,7 @@ public class UserInfo extends AppCompatActivity {
 
         signOutButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                Intent intent = new Intent(UserInfo.this, LoginActivity.class);
+                Intent intent = new Intent(UserInfo.this, LoginActivity2.class);
                 startActivity(intent);
             }
         });
