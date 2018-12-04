@@ -8,6 +8,7 @@ import java.util.Date;
 public class Workout {
 
     private String mDate;
+    private String mName;
     private ArrayList<Exercise> mExerciseList;
 
     //constructor
@@ -18,6 +19,7 @@ public class Workout {
 
     //getters
     public String getDate() { return mDate; }
+    public String getName() { return mName; }
     public ArrayList<Exercise> getExerciseList() { return mExerciseList; }
     public String getTodaysDate() {
         Date c = Calendar.getInstance().getTime();

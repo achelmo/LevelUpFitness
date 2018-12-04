@@ -7,7 +7,7 @@
     tools:context=".MainActivity"
     tools:layout_editor_absoluteY="81dp">
 
-    <Button
+   <!-- <Button
         android:id="@+id/userInfoButton"
         android:layout_width="200dp"
         android:layout_height="70dp"
@@ -53,5 +53,9 @@
         app:layout_constraintBottom_toTopOf="@+id/createWorkoutButton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent" /> -->
+   <ListView
+       android:id="@+id/main_listview"
+       android:layout_width="match_parent"
+       android:layout_height="match_parent" />
 </android.support.constraint.ConstraintLayout>
